@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - UYC Chartered Accountants</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            cursor: pointer;
+        }
+        .tabs div {
+            padding: 10px 20px;
+            background: #f4f4f4;
+            border: 1px solid #ccc;
+            margin-bottom: -1px;
+        }
+        .tabs .active {
+            background: #4682b4;
+            color: #fff;
+        }
+        .tab-content {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-top: -1px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul.showing {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Services</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('auditing')">Auditing</div>
+            <div class="tab" onclick="showTab('consulting')">Consulting Services</div>
+            <div class="tab" onclick="showTab('tax')">Tax Planning and Preparation</div>
+            <div class="tab" onclick="showTab('analysis')">Financial Statement Analysis</div>
+            <div class="tab" onclick="showTab('bookkeeping')">Bookkeeping Services</div>
+        </div>
+        <div id="auditing" class="tab-content active">
+            <h3>Auditing</h3>
+            <p>Our auditing services ensure that your financial statements are accurate and comply with regulatory standards. We provide thorough and independent audits to give you confidence in your financial reporting.</p>
+        </div>
+        <div id="consulting" class="tab-content">
+            <h3>Consulting Services</h3>
+            <p>We offer expert consulting services to help you navigate complex financial challenges and make informed business decisions. Our consultants are experienced in a variety of industries and can provide tailored advice to meet your specific needs.</p>
+        </div>
+        <div id="tax" class="tab-content">
+            <h3>Tax Planning and Preparation</h3>
+            <p>Our tax professionals can assist with tax planning and preparation, ensuring that you comply with tax regulations and optimize your tax position. We stay up-to-date with the latest tax laws to provide you with accurate and effective tax strategies.</p>
+        </div>
+        <div id="analysis" class="tab-content">
+            <h3>Financial Statement Analysis</h3>
+            <p>We analyze your financial statements to provide insights into your business performance and identify areas for improvement. Our analysis helps you understand your financial health and make strategic decisions.</p>
+        </div>
+        <div id="bookkeeping" class="tab-content">
+            <h3>Bookkeeping Services</h3>
+            <p>Our bookkeeping services keep your financial records organized and up-to-date. We manage your day-to-day accounting tasks so that you can focus on running your business.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 UYC Chartered Accountants. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const navUl = document.getElementById('nav-ul');
+            navUl.classList.toggle('showing');
+        }
+
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            document.querySelector(`#${tabId}`).classList.add('active');
+            document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>

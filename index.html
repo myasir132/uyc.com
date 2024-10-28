@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UYC Chartered Accountants</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <h1>UYC Chartered Accountants</h1>
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <nav>
+            <ul id="nav-ul">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container fade-in" id="description">
+        <h2>Welcome to UYC Chartered Accountants</h2>
+        <p>We provide top-notch accounting and financial services for businesses of all sizes. Our team of experts specializes in auditing, consulting, and tax services to help you manage your finances efficiently and effectively.</p>
+        
+        <h3>Our Services</h3>
+        <p>we offer a wide variety of servicies which include:</p>
+        <div class="services-carousel" id="carousel">
+            <div>Auditing</div>
+            <div>Consulting Services</div>
+            <div>Tax Planning and Preparation</div>
+            <div>Financial Statement Analysis</div>
+            <div>Bookkeeping Services</div>
+        </div>
+
+        <h3>Client Testimonials</h3>
+        <div class="testimonial">
+            <p>"UYC Chartered Accountants has been an invaluable partner in our business. Their expertise and professional service are unmatched!" - Jane Doe, CEO of TechCorp</p>
+        </div>
+
+        <h3>Meet Our Team</h3>
+        <div class="team-member">
+            <img src="https://via.placeholder.com/80" alt="John Smith">
+            <div>
+                <h4>John Smith</h4>
+                <p>Partner and Lead Auditor</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://via.placeholder.com/80" alt="Sarah Johnson">
+            <div>
+                <h4>Sarah Johnson</h4>
+                <p>Senior Tax Consultant</p>
+            </div>
+        </div>
+
+        <h3>Contact Us</h3>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 UYC Chartered Accountants. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const navUl = document.getElementById('nav-ul');
+            navUl.classList.toggle('showing');
+        }
+        // Trigger fade-in animation on page load
+        window.onload = function() {
+            const description = document.getElementById('description');
+            description.classList.add('fade-in');
+            // Start carousel
+            startCarousel();
+        }
+
+        function startCarousel() {
+            const carousel = document.getElementById('carousel');
+            let idx = 0;
+            setInterval(() => {
+                carousel.scrollTo({
+                    left: (carousel.children[idx].offsetWidth * idx),
+                    behavior: 'smooth'
+                });
+                idx = (idx + 1) % carousel.children.length;
+            }, 2000);
+        }
+
+        // Simple form validation
+        document.getElementById('contactForm').onsubmit = function(e) {
+            e.preventDefault();
+            alert('Thank you for contacting us!');
+        }
+    </script>
+</body>
+</html>
